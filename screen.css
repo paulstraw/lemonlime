@@ -1,0 +1,161 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box; }
+
+body {
+  overflow: hidden; }
+
+body, input, select, button, textarea {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
+img {
+  -ms-interpolation-mode: bicubic; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+/* Clearfix: */
+.group:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+* html .group {
+  height: 1%; }
+
+*:first-child + html .group {
+  min-height: 1px; }
+
+/* End clearfix */
+/* Fonts: */
+.jubilat {
+  font-family: "jubilat", serif;
+  font-weight: 400 !important; }
+  .jubilat.light {
+    font-weight: 300 !important; }
+
+/* End fonts */
+header {
+  height: 40px;
+  background-color: #c5c5c5;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#b9b8b9));
+  background-image: -webkit-linear-gradient(#e5e5e5, #b9b8b9);
+  background-image: -moz-linear-gradient(center top, #e5e5e5 0%, #b9b8b9 100%);
+  background-image: -moz-gradient(center top, #e5e5e5 0%, #b9b8b9 100%);
+  background-image: -o-linear-gradient(top, #e5e5e5 0%, #b9b8b9 100%);
+  background-image: -ms-linear-gradient(top, #e5e5e5 0%, #b9b8b9 100%);
+  color: #404040;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  -webkit-text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  -moz-text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  -o-text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 -1px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 -1px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 -1px rgba(255, 255, 255, 0.3);
+  -o-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 -1px rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid #A7A7A7;
+  position: relative;
+  z-index: 2; }
+  header h1 {
+    padding: 3px 0 0 10px;
+    float: left;
+    font-size: 24px; }
+  header menu {
+    float: right;
+    padding: 6px 10px 0 0; }
+    header menu div.split button {
+      height: 26px;
+      display: block;
+      float: left;
+      border: 1px solid;
+      border-top-color: #7D7D7D;
+      border-right-color: #ddd;
+      border-bottom-color: #707070;
+      border-left-color: #767676;
+      background-color: #d1d1d1;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#bfbfbf));
+      background-image: -webkit-linear-gradient(#efefef, #bfbfbf);
+      background-image: -moz-linear-gradient(center top, #efefef 0%, #bfbfbf 100%);
+      background-image: -moz-gradient(center top, #efefef 0%, #bfbfbf 100%);
+      background-image: -o-linear-gradient(top, #efefef 0%, #bfbfbf 100%);
+      background-image: -ms-linear-gradient(top, #efefef 0%, #bfbfbf 100%);
+      cursor: pointer;
+      box-shadow: inset 0 1px whitesmoke, 0 1px rgba(255, 255, 255, 0.4);
+      -webkit-box-shadow: inset 0 1px whitesmoke, 0 1px rgba(255, 255, 255, 0.4);
+      -moz-box-shadow: inset 0 1px whitesmoke, 0 1px rgba(255, 255, 255, 0.4);
+      -o-box-shadow: inset 0 1px whitesmoke, 0 1px rgba(255, 255, 255, 0.4); }
+      header menu div.split button:first-child {
+        border-radius: 4px 0 0 4px;
+        -webkit-border-radius: 4px 0 0 4px;
+        -moz-border-radius: 4px 0 0 4px;
+        -o-border-radius: 4px 0 0 4px; }
+      header menu div.split button:last-child {
+        border-radius: 0 4px 4px 0;
+        -webkit-border-radius: 0 4px 4px 0;
+        -moz-border-radius: 0 4px 4px 0;
+        -o-border-radius: 0 4px 4px 0;
+        border-right-color: #767676; }
+      header menu div.split button.current {
+        background-color: #818181;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#7c7c7c), to(#8e8e8e));
+        background-image: -webkit-linear-gradient(#7c7c7c, #8e8e8e);
+        background-image: -moz-linear-gradient(center top, #7c7c7c 0%, #8e8e8e 100%);
+        background-image: -moz-gradient(center top, #7c7c7c 0%, #8e8e8e 100%);
+        background-image: -o-linear-gradient(top, #7c7c7c 0%, #8e8e8e 100%);
+        background-image: -ms-linear-gradient(top, #7c7c7c 0%, #8e8e8e 100%);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 -1px 2px rgba(255, 255, 255, 0.15), 0 1px rgba(255, 255, 255, 0.4);
+        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 -1px 2px rgba(255, 255, 255, 0.15), 0 1px rgba(255, 255, 255, 0.4);
+        -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 -1px 2px rgba(255, 255, 255, 0.15), 0 1px rgba(255, 255, 255, 0.4);
+        -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 -1px 2px rgba(255, 255, 255, 0.15), 0 1px rgba(255, 255, 255, 0.4);
+        border-right-color: #767676; }
+        header menu div.split button.current .icon {
+          margin: 4px 3px 2px; }
+          header menu div.split button.current .icon.horizontal {
+            background-position: 0px 0px; }
+          header menu div.split button.current .icon.vertical {
+            background-position: 0px -20px; }
+      header menu div.split button .icon {
+        background: url("img/hv.png");
+        width: 20px;
+        height: 20px;
+        text-indent: -9999px;
+        margin: 3px; }
+        header menu div.split button .icon.horizontal {
+          background-position: 0px -40px; }
+        header menu div.split button .icon.vertical {
+          background-position: 0px -60px; }
+
+div#preview-container {
+  width: 50%;
+  height: 100%;
+  padding-top: 40px;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+div#css-container {
+  width: 50%;
+  height: 100%;
+  padding-top: 40px;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  div#css-container textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    font-family: "Inconsolata", "Courier", monospace; }
