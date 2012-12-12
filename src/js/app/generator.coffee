@@ -1,18 +1,22 @@
 class Generator
 	constructor: (@cssifier, @options) ->
 		@files = []
+
 		@canvas = $('<canvas>')[0]
 		@ctx = @canvas.getContext '2d'
+
 		@previewImage = $('#preview-container').find('img')
 
 		$('body').on 'optionChange', =>
 			if @files.length
-				@updateSprite()
-				@cssifier.cssify(@files)
+				@updateBoth()
 
 	addFile: (file) =>
 		@files.push file
 
+		@updateBoth()
+
+	updateBoth: =>
 		@updateSprite()
 		@cssifier.cssify(@files)
 

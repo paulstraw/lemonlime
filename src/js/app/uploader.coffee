@@ -3,6 +3,7 @@ class Uploader
 		@initializeTarget()
 		@initializePreviewImage()
 		@dragReady = true
+		@processing = false
 
 	initializePreviewImage: =>
 		previewImage = @target.find '#preview'
@@ -49,18 +50,24 @@ class Uploader
 		return false
 
 	processFile: (file) =>
-		if !file.type.match /^image\/(png|jpg|jpeg|gif)$/
-			alert 'GIF, PNG, and JPG only.'
-			return
-
-		reader = new FileReader()
-
-		reader.addEventListener 'load', (e) =>
+		if @processing
 			setTimeout =>
+				@processFile(file)
+			, 60
+		else
+			@processing = true
+			if !file.type.match /^image\/(png|jpg|jpeg|gif)$/
+				alert 'GIF, PNG, and JPG only.'
+				return
+
+			reader = new FileReader()
+
+			reader.addEventListener 'load', (e) =>
 				@generator.addFile
 					rawName: file.name
 					name: file.name.substr 0, file.name.lastIndexOf('.')
 					data: e.target.result
-			, 100
 
-		reader.readAsDataURL file
+				@processing = false
+
+			reader.readAsDataURL file
