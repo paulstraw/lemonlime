@@ -6,8 +6,9 @@ class Generator
 		@previewImage = $('#preview-container').find('img')
 
 		$('body').on 'optionChange', =>
-			@updateSprite()
-			@cssifier.cssify(@files)
+			if @files.length
+				@updateSprite()
+				@cssifier.cssify(@files)
 
 	addFile: (file) =>
 		@files.push file
@@ -61,7 +62,7 @@ class Generator
 					top: 0
 
 				totalWidth += iWidth + padding
-				totalHeight = widestImage
+				totalHeight = tallestImage
 
 		#update canvas
 		@canvas.width = totalWidth

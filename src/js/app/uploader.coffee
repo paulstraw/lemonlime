@@ -11,12 +11,16 @@ class Uploader
 
 	handleDragEnter: (e) =>
 		console.log e
+		@target.addClass 'drag-over'
 
 	handleDragLeave: (e) =>
-		console.log e
+		@target.removeClass 'drag-over'
 
 	handleDrop: (e) =>
 		e.preventDefault()
+
+		@target.addClass 'dropped'
+		@target.removeClass 'drag-over'
 
 		@processFile file for file in e.originalEvent.dataTransfer.files
 
@@ -30,9 +34,11 @@ class Uploader
 		reader = new FileReader()
 
 		reader.addEventListener 'load', (e) =>
-			@generator.addFile
-				rawName: file.name
-				name: file.name.substr 0, file.name.lastIndexOf('.')
-				data: e.target.result
+			setTimeout =>
+				@generator.addFile
+					rawName: file.name
+					name: file.name.substr 0, file.name.lastIndexOf('.')
+					data: e.target.result
+			, 100
 
 		reader.readAsDataURL file
