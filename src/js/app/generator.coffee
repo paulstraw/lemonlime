@@ -42,17 +42,13 @@ class Generator
 		for file in @files
 			image = new Image
 			image.src = file.data
-			iWidth = image.width
-			iHeight = image.height
+			iWidth = file.size.width
+			iHeight = file.size.height
 
 			if iWidth > widestImage then widestImage = iWidth
 			if iHeight > tallestImage then tallestImage = iHeight
 
 			#update file info and totals
-			file.size =
-				width: iWidth
-				height: iHeight
-
 			if layout == 'v'
 				file.offset =
 					left: 0

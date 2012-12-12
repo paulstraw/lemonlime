@@ -53,7 +53,7 @@ class Uploader
 		if @processing
 			setTimeout =>
 				@processFile(file)
-			, 60
+			, 30
 		else
 			@processing = true
 			if !file.type.match /^image\/(png|jpg|jpeg|gif)$/
@@ -63,11 +63,20 @@ class Uploader
 			reader = new FileReader()
 
 			reader.addEventListener 'load', (e) =>
-				@generator.addFile
-					rawName: file.name
-					name: file.name.substr 0, file.name.lastIndexOf('.')
-					data: e.target.result
+				data = e.target.result
 
-				@processing = false
+				image = new Image
+				image.src = data
+
+				$(image).on 'load', =>
+					@generator.addFile
+						rawName: file.name
+						name: file.name.substr 0, file.name.lastIndexOf('.')
+						data: data
+						size:
+							width: image.width
+							height: image.height
+
+					@processing = false
 
 			reader.readAsDataURL file
