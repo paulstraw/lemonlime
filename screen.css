@@ -166,6 +166,7 @@ div#preview-container {
     left: 50%;
     margin-top: -100px;
     margin-left: -100px;
+    pointer-events: none;
     transition: all 150ms linear;
     -webkit-transition: all 150ms linear;
     -moz-transition: all 150ms linear;
