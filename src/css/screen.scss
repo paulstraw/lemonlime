@@ -25,12 +25,12 @@ em { font-style:italic; }
 /* End fonts */
 
 header {
-	height: 40px; @include background-y(#E5E5E5, #B9B8B9, #C5C5C5); color: #404040; @include text-shadow(0 1px rgba(255, 255, 255, 0.3)); @include box-shadow(inset 0 1px rgba(255, 255, 255, 0.5), inset 0 -1px rgba(255, 255, 255, 0.3)); border-bottom: 1px solid #A7A7A7; position: relative; z-index: 2;
+	height: 50px; @include background-y(#E5E5E5, #B9B8B9, #C5C5C5); color: #404040; @include text-shadow(0 1px rgba(255, 255, 255, 0.3)); @include box-shadow(inset 0 1px rgba(255, 255, 255, 0.5), inset 0 -1px rgba(255, 255, 255, 0.3)); border-bottom: 1px solid #A7A7A7; position: relative; z-index: 3;
 
-	h1 { padding: 3px 0 0 10px; float: left; font-size: 24px; }
+	h1 { margin: 2px 0 0 0; float: left; font-size: 24px; width: 185px; height: 42px; background: url("img/logo.png"); text-indent: -9999px; }
 
 	menu {
-		float: right; padding: 6px 10px 0 0;
+		float: right; padding: 11px 10px 0 0;
 
 		div.split {
 			button {
@@ -61,23 +61,25 @@ header {
 }
 
 div#preview-container {
-	width: 50%; height: 100%; position: absolute; top: 0; left: 0; padding: 50px 10px 10px; @include transition(background 300ms linear);
+	width: 50%; height: 100%; position: absolute; top: 0; left: 0; padding: 60px 10px 10px; background: #f0f0f0; @include transition(background 150ms linear);
 
-	div#drop-here { background: url("img/drop-here.png") no-repeat; width: 200px; height: 200px; position: absolute; top: 50%; left: 50%; margin-top: -100px; margin-left: -100px; @include transition(all 300ms linear); }
+	div#drop-here { background: url("img/drop-here.png") no-repeat; z-index: 3; width: 200px; height: 200px; position: absolute; top: 50%; left: 50%; margin-top: -100px; margin-left: -100px; @include transition(all 150ms linear); }
 
 	&.dropped {
+		background: #fff;
+
 		div#drop-here { @include opacity(0); }
 	}
 
 	&.drag-over {
-		background: #f4f4f4;
+		background: #f0f0f0;
 
-		div#drop-here { @include transform(scale(1.05)); @include opacity(1); }
+		div#drop-here { @include transform(scale(1.05) rotate(-1deg)); @include opacity(1); }
 	}
 }
 
 div#css-container {
-	width: 50%; height: 100%; padding-top: 40px; position: absolute; top: 0; right: 0; background: #22252A;
+	width: 50%; height: 100%; padding-top: 50px; position: absolute; top: 0; right: 0; background: #22252A;
 
-	textarea { width: 100%; height: 100%; resize: none; font-family: "Inconsolata", "Courier", monospace; background: transparent; color: #f4f4f4; padding: 10px; }
+	textarea { width: 100%; height: 100%; resize: none; font-family: "Inconsolata", "Courier", monospace; background: transparent; color: #f4f4f4; padding: 10px; outline: 0; }
 }

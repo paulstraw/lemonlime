@@ -1,25 +1,47 @@
 class Uploader
 	constructor: (@generator)->
 		@initializeTarget()
+		@initializePreviewImage()
+		@dragReady = true
+
+	initializePreviewImage: =>
+		previewImage = @target.find '#preview'
+
+		previewImage.on 'dragstart', =>
+			setTimeout =>
+				@dragReady = false
+			, 1
+
+		previewImage.on 'dragend', =>
+			@dragReady = true
 
 	initializeTarget: =>
 		@target = $('#preview-container')
+		@collection = $()
 
 		@target.on 'dragenter', @handleDragEnter
 		@target.on 'dragleave', @handleDragLeave
 		@target.on 'drop', @handleDrop
 
 	handleDragEnter: (e) =>
-		console.log e
-		@target.addClass 'drag-over'
+		if @dragReady
+			unless @collection.size()
+				@target.addClass 'drag-over'
+
+			@collection = @collection.add e.target
 
 	handleDragLeave: (e) =>
-		@target.removeClass 'drag-over'
+		setTimeout =>
+			@collection = @collection.not e.target
+			unless @collection.size()
+				@target.removeClass 'drag-over'
+		, 0
 
 	handleDrop: (e) =>
 		e.preventDefault()
 
 		@target.addClass 'dropped'
+		@collection = $()
 		@target.removeClass 'drag-over'
 
 		@processFile file for file in e.originalEvent.dataTransfer.files

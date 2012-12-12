@@ -1,4 +1,12 @@
 class Cssifier
+	constructor: ->
+		$('#css-container').find('textarea').on 'focus', @handleTextareaFocus
+
+	handleTextareaFocus: (e) =>
+		setTimeout ->
+			$(e.currentTarget).select()
+		, 0
+
 	cssify: (files) =>
 		spriteName = 'sprite'#read from options
 		css = ".#{spriteName} { background: url(\"#{spriteName}.png\"); }\n"
