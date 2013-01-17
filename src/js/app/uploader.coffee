@@ -21,6 +21,7 @@ class Uploader
 		@collection = $()
 
 		@target.on 'dragenter', @handleDragEnter
+		@target.on 'dragover', @handleDragOver
 		@target.on 'dragleave', @handleDragLeave
 		@target.on 'drop', @handleDrop
 
@@ -31,6 +32,9 @@ class Uploader
 
 			@collection = @collection.add e.target
 
+	handleDragOver: (e) =>
+		e.preventDefault();
+
 	handleDragLeave: (e) =>
 		setTimeout =>
 			@collection = @collection.not e.target
@@ -39,6 +43,7 @@ class Uploader
 		, 0
 
 	handleDrop: (e) =>
+		e.stopPropagation()
 		e.preventDefault()
 
 		@target.addClass 'dropped'
